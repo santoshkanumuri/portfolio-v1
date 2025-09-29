@@ -52,6 +52,44 @@ The built files will be in the `dist` directory.
 npm run preview
 ```
 
+## 🚀 Deploying to GitHub Pages
+
+This site is configured for automatic deployment to GitHub Pages using GitHub Actions.
+
+### Initial Setup
+
+1. **Push your code to GitHub:**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+   git push -u origin main
+   ```
+
+2. **Enable GitHub Pages:**
+   - Go to your repository on GitHub
+   - Click on **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+
+3. **Automatic Deployment:**
+   - Every time you push to the `main` or `master` branch, the site will automatically build and deploy
+   - You can also manually trigger deployment from the **Actions** tab
+
+4. **View Your Site:**
+   - Your site will be available at: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
+   - If your repo is named `YOUR_USERNAME.github.io`, it will be at: `https://YOUR_USERNAME.github.io/`
+
+### Manual Deployment
+
+If you prefer manual deployment, you can use:
+
+```bash
+npm run build
+# Then manually upload the 'dist' folder contents to your hosting service
+```
+
 ## 📁 Project Structure
 
 ```
