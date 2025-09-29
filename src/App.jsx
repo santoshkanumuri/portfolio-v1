@@ -54,7 +54,7 @@ function App() {
       authors: "Acharya, Manaswini, Aparna Labroo, and Mayukh Dass",
       journal: "Journal of Consumer Research",
       year: "Under Review",
-      note: "Job Market Paper",
+      note: "Featured",
       type: "under-review"
     },
     {
@@ -242,9 +242,6 @@ function App() {
               </div>
               <div>
                 <CardTitle className="text-2xl text-primary">Dissertation</CardTitle>
-                <Badge className="mt-1 bg-primary text-white font-semibold">
-                  Job Market Paper
-                </Badge>
               </div>
             </div>
           </CardHeader>
