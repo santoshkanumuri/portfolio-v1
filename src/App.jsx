@@ -15,6 +15,8 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
+    // Scroll to top on mount
+    window.scrollTo(0, 0)
     setIsLoaded(true)
   }, [])
 
