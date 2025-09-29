@@ -5,10 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge.jsx'
 import { Separator } from '@/components/ui/separator.jsx'
 import { Mail, MapPin, Phone, ExternalLink, BookOpen, Award, Users, Code, GraduationCap, FileText } from 'lucide-react'
-import professionalPortrait from './assets/professional-portrait.jpg'
-import researchIllustration from './assets/research-illustration.jpg'
-import marketResearch from './assets/market-research.jpg'
-import dataVisualization from './assets/data-visualization.jpg'
+// Import your professional portrait
+import professionalPortrait from './assets/profile.jfif'
+
 import './App.css'
 
 function App() {
@@ -83,20 +82,29 @@ function App() {
     }
   ]
 
-  const awards = [
-    "Best in Track Paper, Summer AMA, Leveraging Data for B2B Marketing Innovation (2025)",
-    "CBSIG, AMA Award for Best Research Proposal ($1,500) (2025)",
-    "Outstanding Contribution to Research, Rawls College of Business ($1,000) (2025)",
-    "Winner, Conceptual Articles of the AMS Review-Sheth Foundation (DoCCA) (2024)",
-    "Fellow, ISBM, Smeal College of Business, PA (2024)",
-    "Rawls Teaching Award, Texas Tech University (2024)",
-    "NSF Proposal Writing Grant ($15,000) (2024)"
+  const keyAwards = [
+    { text: "Best in Track Paper, Summer AMA, Leveraging Data for B2B Marketing Innovation (2025)", highlight: true },
+    { text: "NSF Proposal Writing Grant ($15,000) (2024)", highlight: true },
+    { text: "Winner, Conceptual Articles of the AMS Review-Sheth Foundation (DoCCA) (2024)", highlight: true }
   ]
 
-  const skills = [
-    "R", "Python", "MATLAB", "Stata", "SPSS", "Excel (advanced)", 
-    "G*Power", "PROCESS Macro", "PsyToolkit", "PFNA", "NVivo", 
-    "Tableau", "fMRI analysis (SPM, nilearn)", "Sentiment & Topic Modeling"
+  const otherAwards = [
+    "CBSIG, AMA Award for Best Research Proposal ($1,500) (2025)",
+    "Outstanding Contribution to Research, Rawls College of Business ($1,000) (2025)",
+    "Fellow, ISBM, Smeal College of Business, PA (2024)",
+    "Rawls Teaching Award, Texas Tech University (2024)"
+  ]
+
+  const keySkills = [
+    "R", "Python", "fMRI analysis (SPM, nilearn)", "Machine Learning", "Experimental Design"
+  ]
+  
+  const analyticsSkills = [
+    "MATLAB", "Stata", "SPSS", "Excel (advanced)", "Tableau", "G*Power"
+  ]
+  
+  const specializedSkills = [
+    "PROCESS Macro", "PsyToolkit", "PFNA", "NVivo", "Sentiment & Topic Modeling"
   ]
 
   const navItems = [
@@ -121,32 +129,28 @@ function App() {
             src={professionalPortrait}
             alt="Manaswini Acharya"
             className="w-48 h-48 rounded-full object-cover mx-auto shadow-2xl"
+            style={{ objectPosition: 'center 15%' }}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           />
-          <motion.div
-            className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-200/20 to-purple-200/20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          />
         </div>
         <div>
           <motion.h1 
-            className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            className="text-5xl font-bold mb-3"
+            style={{ color: 'var(--primary)' }}
             variants={fadeInUp}
           >
             Manaswini Acharya
           </motion.h1>
           <motion.p 
-            className="text-xl text-muted-foreground mt-2"
+            className="text-xl font-semibold text-gray-700 mt-2"
             variants={fadeInUp}
           >
             Ph.D. Candidate in Marketing
           </motion.p>
           <motion.p 
-            className="text-lg text-muted-foreground"
+            className="text-lg text-gray-600"
             variants={fadeInUp}
           >
             Texas Tech University, Rawls College of Business
@@ -155,13 +159,13 @@ function App() {
       </motion.div>
 
       <motion.div variants={fadeInUp} className="max-w-4xl mx-auto">
-        <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50/50 to-purple-50/50">
+        <Card className="border shadow-md" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--card)' }}>
           <CardContent className="p-8">
-            <p className="text-lg leading-relaxed text-center">
+            <p className="text-lg leading-relaxed text-center text-gray-700">
               I am a Ph.D. candidate in Marketing at Texas Tech University's Rawls College of Business, 
-              specializing in customer-based strategy, information processing, and marketing strategy with 
-              a focus on emerging markets and AI. My research explores the intersection of branding, 
-              marketing strategy, and technology, particularly examining how stigma affects consumer behavior 
+              specializing in <strong className="text-primary">customer-based strategy</strong>, <strong className="text-primary">information processing</strong>, and <strong className="text-primary">marketing strategy</strong> with 
+              a focus on <strong className="text-primary">emerging markets and AI</strong>. My research explores the intersection of branding, 
+              marketing strategy, and technology, particularly examining how <strong className="text-primary">stigma affects consumer behavior</strong> 
               and product adoption in various contexts.
             </p>
           </CardContent>
@@ -169,43 +173,43 @@ function App() {
       </motion.div>
 
       <motion.div variants={fadeInUp} className="grid md:grid-cols-3 gap-6">
-        <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--card)' }}>
           <CardHeader className="text-center">
-            <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
-              <BookOpen className="w-8 h-8 text-blue-600" />
+            <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#f5f0ff' }}>
+              <BookOpen className="w-8 h-8 text-primary" />
             </div>
-            <CardTitle className="text-blue-600">Theoretical Focus</CardTitle>
+            <CardTitle className="text-primary">Theoretical Focus</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-sm text-center text-gray-600">
               Customer-Based Strategy • Information Processing • Marketing Strategy • Emerging Markets • AI
             </p>
           </CardContent>
         </Card>
 
-        <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--card)' }}>
           <CardHeader className="text-center">
-            <div className="w-16 h-16 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-4">
-              <Users className="w-8 h-8 text-purple-600" />
+            <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#f5f0ff' }}>
+              <Users className="w-8 h-8 text-primary" />
             </div>
-            <CardTitle className="text-purple-600">Substantive Research</CardTitle>
+            <CardTitle className="text-primary">Substantive Research</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-sm text-center text-gray-600">
               Better Marketing for a Better World • Stigmatized Contexts • Responsible Marketing
             </p>
           </CardContent>
         </Card>
 
-        <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--card)' }}>
           <CardHeader className="text-center">
-            <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <Code className="w-8 h-8 text-green-600" />
+            <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: '#f5f0ff' }}>
+              <Code className="w-8 h-8 text-primary" />
             </div>
-            <CardTitle className="text-green-600">Methodological Expertise</CardTitle>
+            <CardTitle className="text-primary">Methodological Expertise</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-sm text-center text-gray-600">
               Experimental Methods • Econometrics • Field Experiments • Machine Learning • fMRI/Neuroimaging
             </p>
           </CardContent>
@@ -222,28 +226,35 @@ function App() {
       className="space-y-8"
     >
       <motion.div variants={fadeInUp} className="text-center">
-        <h2 className="text-4xl font-bold mb-4">Research Portfolio</h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+        <h2 className="text-4xl font-bold mb-4 text-primary">Research Portfolio</h2>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
           My research focuses on understanding consumer behavior in stigmatized contexts and developing 
           marketing strategies that create positive social impact while driving business outcomes.
         </p>
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <Card className="mb-8">
+        <Card className="mb-8 border-2 shadow-lg highlight-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-2xl">
-              <FileText className="w-6 h-6 text-blue-600" />
-              Dissertation
-            </CardTitle>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="p-2 rounded-lg" style={{ backgroundColor: '#f5f0ff' }}>
+                <FileText className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <CardTitle className="text-2xl text-primary">Dissertation</CardTitle>
+                <Badge className="mt-1 bg-primary text-white font-semibold">
+                  Job Market Paper
+                </Badge>
+              </div>
+            </div>
           </CardHeader>
           <CardContent>
-            <h3 className="text-xl font-semibold mb-2">Breaking the Barriers: Stigma</h3>
-            <h4 className="text-lg text-muted-foreground mb-4">
+            <h3 className="text-xl font-bold mb-2 text-gray-800">Breaking the Barriers: Stigma</h3>
+            <h4 className="text-lg font-semibold mb-4 text-gray-700">
               The Paradox of Product Salience: When Advertising Backfires and Amplifies Stigma
             </h4>
-            <p className="text-sm leading-relaxed">
-              With over 50 million Americans experiencing stigmatizing health conditions such as menopause 
+            <p className="text-sm leading-relaxed text-gray-600">
+              With over <strong>50 million Americans</strong> experiencing stigmatizing health conditions such as menopause 
               and low testosterone, the role of advertising in boosting product awareness and adoption has 
               never been more critical. While advertising typically increases awareness and sales, for 
               products addressing stigmatized health conditions, it may instead backfire...
@@ -253,8 +264,8 @@ function App() {
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-          <img src={researchIllustration} alt="Research" className="w-8 h-8 rounded" />
+        <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-gray-800">
+          <BookOpen className="w-6 h-6 text-primary" />
           Published Research
         </h3>
         <div className="space-y-4">
@@ -265,14 +276,14 @@ function App() {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="hover:shadow-lg transition-all duration-300">
+              <Card className="hover:shadow-lg transition-all duration-300 border" style={{ borderColor: 'var(--border)' }}>
                 <CardContent className="p-6">
-                  <h4 className="font-semibold text-lg mb-2">{pub.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-2">{pub.authors}</p>
-                  <div className="flex items-center gap-2">
+                  <h4 className="font-semibold text-lg mb-2 text-gray-800">{pub.title}</h4>
+                  <p className="text-sm mb-2 text-gray-600">{pub.authors}</p>
+                  <div className="flex items-center gap-2 flex-wrap">
                     <Badge variant="secondary">{pub.journal}</Badge>
                     <Badge variant="outline">{pub.year}</Badge>
-                    <span className="text-sm text-muted-foreground">{pub.volume}</span>
+                    <span className="text-sm text-gray-500">{pub.volume}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -282,8 +293,8 @@ function App() {
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-          <img src={marketResearch} alt="Under Review" className="w-8 h-8 rounded" />
+        <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-gray-800">
+          <FileText className="w-6 h-6 text-primary" />
           Manuscripts Under Review
         </h3>
         <div className="space-y-4">
@@ -294,14 +305,14 @@ function App() {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="hover:shadow-lg transition-all duration-300">
+              <Card className={`hover:shadow-lg transition-all duration-300 ${pub.note ? 'border-2 highlight-card' : 'border'}`} style={{ borderColor: pub.note ? 'var(--primary)' : 'var(--border)' }}>
                 <CardContent className="p-6">
-                  <h4 className="font-semibold text-lg mb-2">{pub.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-2">{pub.authors}</p>
-                  <div className="flex items-center gap-2">
+                  {pub.note && <Badge className="mb-3 bg-primary text-white font-semibold">⭐ {pub.note}</Badge>}
+                  <h4 className="font-semibold text-lg mb-2 text-gray-800">{pub.title}</h4>
+                  <p className="text-sm mb-2 text-gray-600">{pub.authors}</p>
+                  <div className="flex items-center gap-2 flex-wrap">
                     <Badge variant="secondary">{pub.journal}</Badge>
                     <Badge variant="outline">{pub.year}</Badge>
-                    {pub.note && <Badge variant="default">{pub.note}</Badge>}
                   </div>
                 </CardContent>
               </Card>
@@ -311,8 +322,8 @@ function App() {
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-          <img src={dataVisualization} alt="Working Papers" className="w-8 h-8 rounded" />
+        <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-gray-800">
+          <FileText className="w-6 h-6 text-primary" />
           Working Papers
         </h3>
         <div className="space-y-4">
@@ -323,14 +334,14 @@ function App() {
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="hover:shadow-lg transition-all duration-300">
+              <Card className={`hover:shadow-lg transition-all duration-300 ${paper.funding ? 'border-2 highlight-card' : 'border'}`} style={{ borderColor: paper.funding ? 'var(--primary)' : 'var(--border)' }}>
                 <CardContent className="p-6">
-                  <h4 className="font-semibold text-lg mb-2">{paper.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-2">{paper.authors}</p>
+                  {paper.funding && <Badge className="mb-3 bg-primary text-white font-semibold">Funded by {paper.funding}</Badge>}
+                  <h4 className="font-semibold text-lg mb-2 text-gray-800">{paper.title}</h4>
+                  <p className="text-sm mb-2 text-gray-600">{paper.authors}</p>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <Badge variant="outline">Status: {paper.status}</Badge>
-                    <Badge variant="secondary">Target: {paper.target}</Badge>
-                    {paper.funding && <Badge variant="default">Funded by {paper.funding}</Badge>}
+                    <Badge variant="secondary">Status: {paper.status}</Badge>
+                    <Badge variant="outline">Target: {paper.target}</Badge>
                   </div>
                 </CardContent>
               </Card>
@@ -349,59 +360,59 @@ function App() {
       className="space-y-8"
     >
       <motion.div variants={fadeInUp} className="text-center">
-        <h2 className="text-4xl font-bold mb-4">Teaching Experience</h2>
-        <p className="text-lg text-muted-foreground">
+        <h2 className="text-4xl font-bold mb-4 text-primary">Teaching Experience</h2>
+        <p className="text-lg text-gray-600">
           Passionate about education and mentoring the next generation of marketers
         </p>
       </motion.div>
 
       <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-6">
-        <Card className="hover:shadow-lg transition-all duration-300">
+        <Card className="hover:shadow-lg transition-all duration-300 border" style={{ borderColor: 'var(--border)' }}>
           <CardHeader>
-            <CardTitle>Integrated Marketing Communications</CardTitle>
-            <CardDescription>Instructor • Texas Tech University</CardDescription>
+            <CardTitle className="text-primary">Integrated Marketing Communications</CardTitle>
+            <CardDescription className="text-gray-600">Instructor • Texas Tech University</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-sm mb-4">
+            <p className="text-sm mb-4 text-gray-700">
               Fall 2022, Spring 2023, Summer 2024, Summer 2025
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <Badge variant="secondary">Course Evaluations</Badge>
-              <span className="text-sm">4.5/5, 4.5/5, 4.7/5</span>
+              <span className="text-sm font-semibold text-gray-700">4.5/5, 4.5/5, 4.7/5</span>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="hover:shadow-lg transition-all duration-300">
+        <Card className="hover:shadow-lg transition-all duration-300 border" style={{ borderColor: 'var(--border)' }}>
           <CardHeader>
-            <CardTitle>Digital Marketing</CardTitle>
-            <CardDescription>Instructor • Texas Tech University</CardDescription>
+            <CardTitle className="text-primary">Digital Marketing</CardTitle>
+            <CardDescription className="text-gray-600">Instructor • Texas Tech University</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-sm mb-4">
+            <p className="text-sm mb-4 text-gray-700">
               Spring 2025, Fall 2025
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <Badge variant="secondary">Course Evaluation</Badge>
-              <span className="text-sm">4.5/5</span>
+              <span className="text-sm font-semibold text-gray-700">4.5/5</span>
             </div>
           </CardContent>
         </Card>
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold mb-4">Teaching Assistant Roles</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-800">Teaching Assistant Roles</h3>
         <div className="space-y-3">
-          <Card>
+          <Card className="border" style={{ borderColor: 'var(--border)' }}>
             <CardContent className="p-4">
-              <h4 className="font-semibold">Market Forecasting & Analytics</h4>
-              <p className="text-sm text-muted-foreground">Teaching Assistant, Prof. Mayukh Dass</p>
+              <h4 className="font-semibold text-gray-800">Market Forecasting & Analytics</h4>
+              <p className="text-sm text-gray-600">Teaching Assistant, Prof. Mayukh Dass</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border" style={{ borderColor: 'var(--border)' }}>
             <CardContent className="p-4">
-              <h4 className="font-semibold">AI Strategies for Business</h4>
-              <p className="text-sm text-muted-foreground">Teaching Assistant, Prof. Mayukh Dass</p>
+              <h4 className="font-semibold text-gray-800">AI Strategies for Business</h4>
+              <p className="text-sm text-gray-600">Teaching Assistant, Prof. Mayukh Dass</p>
             </CardContent>
           </Card>
         </div>
@@ -417,25 +428,48 @@ function App() {
       className="space-y-8"
     >
       <motion.div variants={fadeInUp} className="text-center">
-        <h2 className="text-4xl font-bold mb-4">Awards & Service</h2>
-        <p className="text-lg text-muted-foreground">
+        <h2 className="text-4xl font-bold mb-4 text-primary">Awards & Service</h2>
+        <p className="text-lg text-gray-600">
           Recognition for research excellence and service to the academic community
         </p>
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold mb-6">Recent Honors & Awards</h3>
-        <div className="space-y-3">
-          {awards.map((award, index) => (
+        <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-primary">
+          <Award className="w-6 h-6" /> Major Honors & Awards
+        </h3>
+        <div className="space-y-4 mb-8">
+          {keyAwards.map((award, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 10, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="hover:shadow-md transition-all duration-300">
-                <CardContent className="p-4">
-                  <p className="text-sm">{award}</p>
+              <Card className="hover:shadow-xl transition-all duration-300 border-2 highlight-card">
+                <CardContent className="pt-7 pb-6 px-5">
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl flex-shrink-0">⭐</span>
+                    <p className="text-sm font-semibold text-gray-800">{award.text}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+        
+        <h3 className="text-xl font-semibold mb-4 text-gray-700">Additional Recognition</h3>
+        <div className="space-y-3">
+          {otherAwards.map((award, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              whileHover={{ x: 8 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Card className="hover:shadow-md transition-all duration-300 border" style={{ borderColor: 'var(--border)' }}>
+                <CardContent className="pt-6 pb-5 px-4">
+                  <p className="text-sm text-gray-700">{award}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -444,26 +478,26 @@ function App() {
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold mb-6">Service to the Profession</h3>
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Service to the Profession</h3>
         <div className="grid md:grid-cols-2 gap-4">
-          <Card>
+          <Card className="border" style={{ borderColor: 'var(--border)' }}>
             <CardHeader>
-              <CardTitle className="text-lg">Editorial Service</CardTitle>
+              <CardTitle className="text-lg text-primary">Editorial Service</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="text-sm space-y-1">
+              <ul className="text-sm space-y-1 text-gray-700">
                 <li>• Ad Hoc Reviewer, International Journal of Research in Marketing (2023–2024)</li>
                 <li>• Ad Hoc Reviewer, Journal of Electronic Commerce Research (2022–2024)</li>
               </ul>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="border" style={{ borderColor: 'var(--border)' }}>
             <CardHeader>
-              <CardTitle className="text-lg">Conference Service</CardTitle>
+              <CardTitle className="text-lg text-primary">Conference Service</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="text-sm space-y-1">
+              <ul className="text-sm space-y-1 text-gray-700">
                 <li>• AMA Public Policy Conference, Reviewer (2024–2025)</li>
                 <li>• AMA Reviewer (2021–2025)</li>
                 <li>• AMS Conference Reviewer (2025)</li>
@@ -474,12 +508,18 @@ function App() {
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold mb-6">Professional Affiliations</h3>
-        <div className="flex flex-wrap gap-2">
+        <h3 className="text-2xl font-semibold mb-6 text-gray-800">Professional Affiliations</h3>
+        <div className="flex flex-wrap gap-3">
           {["INFORMS (Marketing Science)", "American Marketing Association", "Transformative Consumer Research", "Academy of Marketing Science"].map((affiliation, index) => (
-            <Badge key={index} variant="outline" className="text-sm">
-              {affiliation}
-            </Badge>
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <Badge className="text-sm py-2 px-4" variant="secondary">
+                {affiliation}
+              </Badge>
+            </motion.div>
           ))}
         </div>
       </motion.div>
@@ -494,20 +534,77 @@ function App() {
       className="space-y-8"
     >
       <motion.div variants={fadeInUp} className="text-center">
-        <h2 className="text-4xl font-bold mb-4">Technical Skills</h2>
-        <p className="text-lg text-muted-foreground">
+        <h2 className="text-4xl font-bold mb-4 text-primary">Technical Skills & Expertise</h2>
+        <p className="text-lg text-gray-600">
           Proficient in advanced analytical and programming tools for marketing research
         </p>
       </motion.div>
 
       <motion.div variants={fadeInUp}>
-        <Card>
+        <Card className="mb-6 border-2 shadow-lg highlight-card">
           <CardHeader>
-            <CardTitle>Programming & Analysis Skills</CardTitle>
+            <CardTitle className="flex items-center gap-2 text-primary">
+              <Code className="w-5 h-5" /> Core Competencies
+            </CardTitle>
+            <CardDescription className="text-gray-600">
+              Primary tools and methodologies for research excellence
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-3">
+              {keySkills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Badge className="text-sm py-2 px-4 bg-primary text-white font-semibold">
+                    {skill}
+                  </Badge>
+                </motion.div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      <motion.div variants={fadeInUp}>
+        <Card className="mb-6 border" style={{ borderColor: 'var(--border)' }}>
+          <CardHeader>
+            <CardTitle className="text-gray-800">Data Analytics & Visualization</CardTitle>
+            <CardDescription className="text-gray-600">
+              Statistical analysis and data visualization tools
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
-              {skills.map((skill, index) => (
+              {analyticsSkills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Badge variant="secondary" className="text-sm">
+                    {skill}
+                  </Badge>
+                </motion.div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      <motion.div variants={fadeInUp}>
+        <Card className="border" style={{ borderColor: 'var(--border)' }}>
+          <CardHeader>
+            <CardTitle className="text-gray-800">Specialized Research Tools</CardTitle>
+            <CardDescription className="text-gray-600">
+              Advanced methodological and qualitative analysis tools
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2">
+              {specializedSkills.map((skill, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
@@ -533,23 +630,23 @@ function App() {
       className="space-y-8"
     >
       <motion.div variants={fadeInUp} className="text-center">
-        <h2 className="text-4xl font-bold mb-4">Contact Information</h2>
-        <p className="text-lg text-muted-foreground">
+        <h2 className="text-4xl font-bold mb-4 text-primary">Contact Information</h2>
+        <p className="text-lg text-gray-600">
           Let's connect and discuss research opportunities
         </p>
       </motion.div>
 
       <motion.div variants={fadeInUp} className="max-w-2xl mx-auto">
-        <Card className="hover:shadow-lg transition-all duration-300">
-          <CardContent className="p-8">
+        <Card className="hover:shadow-xl transition-all duration-300 border" style={{ borderColor: 'var(--border)' }}>
+          <CardContent className="pt-12 pb-10 px-8">
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f5f0ff' }}>
+                  <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold">Email</p>
-                  <a href="mailto:Macharya@ttu.edu" className="text-blue-600 hover:underline">
+                  <p className="font-semibold text-gray-800">Email</p>
+                  <a href="mailto:Macharya@ttu.edu" className="text-primary hover:underline font-medium">
                     Macharya@ttu.edu
                   </a>
                 </div>
@@ -558,25 +655,25 @@ function App() {
               <Separator />
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f5f0ff' }}>
+                  <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold">Office</p>
-                  <p className="text-muted-foreground">Room E379, Rawls College of Business</p>
-                  <p className="text-muted-foreground">Texas Tech University, Lubbock, TX</p>
+                  <p className="font-semibold text-gray-800">Office</p>
+                  <p className="text-gray-600">Room E379, Rawls College of Business</p>
+                  <p className="text-gray-600">Texas Tech University, Lubbock, TX</p>
                 </div>
               </div>
 
               <Separator />
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-purple-600" />
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f5f0ff' }}>
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold">Phone</p>
-                  <p className="text-muted-foreground">806.742.3188</p>
+                  <p className="font-semibold text-gray-800">Phone</p>
+                  <p className="text-gray-600">806.742.3188</p>
                 </div>
               </div>
             </div>
@@ -599,10 +696,11 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50/30 via-white to-purple-50/30">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
       {/* Navigation */}
       <motion.nav 
-        className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50"
+        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b"
+        style={{ borderColor: 'var(--border)' }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -610,7 +708,8 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <motion.h1 
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold"
+              style={{ color: 'var(--primary)' }}
               whileHover={{ scale: 1.05 }}
             >
               Manaswini Acharya
@@ -625,8 +724,8 @@ function App() {
                     onClick={() => setActiveSection(item.id)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
                       activeSection === item.id
-                        ? 'bg-blue-100 text-blue-700'
-                        : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
+                        ? 'bg-primary text-white'
+                        : 'text-gray-600 hover:text-primary hover:bg-gray-50'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -663,15 +762,16 @@ function App() {
 
       {/* Footer */}
       <motion.footer 
-        className="bg-gray-50 border-t border-gray-200"
+        className="border-t bg-white"
+        style={{ borderColor: 'var(--border)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <div className="text-center text-sm text-muted-foreground">
-            <p>© 2024 Manaswini Acharya. All rights reserved.</p>
-            <p className="mt-2">Ph.D. Candidate in Marketing, Texas Tech University</p>
+          <div className="text-center text-sm">
+            <p className="text-gray-600">© 2024 Manaswini Acharya. All rights reserved.</p>
+            <p className="mt-2 text-primary font-medium">Ph.D. Candidate in Marketing, Texas Tech University</p>
           </div>
         </div>
       </motion.footer>
